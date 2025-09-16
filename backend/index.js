@@ -12,10 +12,12 @@ app.set('trust proxy', 1);
 // Middleware
 app.use(cors({
   origin: [
-    process.env.FRONTEND_URL || 'http://localhost:5173',
-    'https://suanhasaigon247.netlify.app'
+    'https://suanhasaigon247.netlify.app',
+    process.env.FRONTEND_URL || 'http://localhost:5173'
   ],
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,10 +27,12 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Basic API routes
 app.get('/api/health', (req, res) => {
+  console.log('Health check request from:', req.get('Origin'));
   res.json({
     status: 'OK',
     message: 'Quotation Management API is running',
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
+    cors: 'CORS configured for Netlify'
   });
 });
 
