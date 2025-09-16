@@ -1,0 +1,27 @@
+{
+  "name": "quotation-management-backend",
+  "version": "1.0.0",
+  "description": "견적 관리 시스템 백엔드",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "prisma": "^5.0.0",
+    "@prisma/client": "^5.0.0",
+    "nodemailer": "^6.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "keywords": ["quotation", "management", "api"],
+  "author": "",
+  "license": "ISC"
+}
