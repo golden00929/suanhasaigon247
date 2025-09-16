@@ -11,9 +11,6 @@ RUN npm install --omit=dev
 # Copy source code
 COPY . .
 
-# Install Prisma CLI and generate client
-RUN npx prisma generate
-
 # Expose port
 EXPOSE 3001
 
